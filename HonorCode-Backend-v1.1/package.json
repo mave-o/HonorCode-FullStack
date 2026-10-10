@@ -1,0 +1,20 @@
+{
+  "name": "honorcode-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HonorCode backend: Vercel serverless API that stores quiz-session activity in Google Sheets.",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "setup:sheet": "node --env-file=.env scripts/setup-sheet.js",
+    "test:smoke": "node scripts/smoke-test.js",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "google-auth-library": "^11.2.0",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

@@ -1,0 +1,24 @@
+# .gitignore
+
+# --- Settings and secrets ---
+# Real settings files stay on your machine; only the template is committed.
+.env
+.env.*
+!.env.example
+
+# Generated from .env by scripts/build-env.js, so it is rebuilt, never committed.
+env.js
+
+# --- Extension signing keys and packages ---
+# The .pem is the private key that fixes the extension's ID. Losing or leaking it is a problem.
+*.pem
+*.crx
+*.zip
+
+# --- Tooling and OS clutter ---
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

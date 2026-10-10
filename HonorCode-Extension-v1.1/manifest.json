@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "HonorCode",
+  "version": "1.0.0",
+  "description": "Records which tabs and site domains you visit while a quiz is open, only while tracking is turned on.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "idle"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "HonorCode",
+    "default_popup": "popup.html"
+  }
+}

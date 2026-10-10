@@ -1,0 +1,32 @@
+# .gitignore  (backend)
+
+# --- Settings and secrets ---
+# Real settings stay on your machine and in Vercel; only the template is committed.
+.env
+.env.*
+!.env.example
+
+# Google service account key files (the JSON you download from Google Cloud).
+service-account*.json
+*-credentials.json
+*credentials*.json
+gcp-*.json
+*.pem
+*.key
+
+# --- Vercel ---
+# Created by `vercel link` / `vercel dev`. `vercel env pull` also writes secrets in here.
+.vercel/
+
+# --- Dependencies and build output ---
+node_modules/
+npm-debug.log*
+
+# --- Packages made for sharing ---
+*.zip
+
+# --- OS and editor clutter ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

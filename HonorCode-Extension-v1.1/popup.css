@@ -1,0 +1,49 @@
+/* popup.css: styling for the toolbar popup. */
+
+/* Fixed width keeps the popup a consistent size. */
+body { width: 300px; margin: 0; padding: 16px; font: 14px/1.4 system-ui, sans-serif; color: #1c1c1c; background: #fff; }
+
+/* Header row: title on the left, status pill on the right. */
+header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+h1 { margin: 0; font-size: 18px; font-weight: 700; }
+
+/* Status pill; its color changes with the state (classes set in popup.js). */
+.pill { padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #e8e8e8; color: #444; }
+.pill.on  { background: #fde0e0; color: #8a1c1c; }
+.pill.up  { background: #ffe9cc; color: #7a4100; }
+
+/* Form fields: label text above a full-width input. */
+label { display: block; margin: 8px 0; font-size: 13px; }
+input[type="email"], input[type="password"], input[type="text"] {
+  display: block; width: 100%; box-sizing: border-box; margin-top: 4px;
+  padding: 7px 8px; border: 1px solid #aaa; border-radius: 6px; font: inherit;
+}
+/* Visible keyboard focus ring (accessibility). */
+input:focus-visible, button:focus-visible { outline: 3px solid #2f6fed; outline-offset: 2px; }
+
+/* Login / Register switch. */
+.tabs { display: flex; gap: 4px; margin-bottom: 8px; }
+.tab { flex: 1; padding: 6px; border: 1px solid #aaa; background: #f4f4f4; border-radius: 6px; cursor: pointer; font: inherit; }
+.tab.active { background: #1c1c1c; color: #fff; border-color: #1c1c1c; }
+
+/* Buttons. */
+button { font: inherit; cursor: pointer; }
+.primary, .danger { width: 100%; padding: 9px; margin-top: 8px; border: 0; border-radius: 6px; font-weight: 600; color: #fff; }
+.primary { background: #0f766e; }
+.danger  { background: #b42318; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.link { background: none; border: 0; color: #555; text-decoration: underline; margin-top: 10px; padding: 0; }
+
+/* Text styles. */
+.note { color: #555; font-size: 13px; margin: 6px 0; }
+.big { font-size: 16px; font-weight: 700; margin: 6px 0; }
+.error { color: #b42318; font-size: 13px; margin: 10px 0 0; }
+
+/* The "what is recorded" box. */
+.disclosure { background: #f3f7f6; border: 1px solid #cfe3df; border-radius: 6px; padding: 8px 10px; font-size: 12.5px; margin: 8px 0; }
+.disclosure ul { margin: 4px 0 6px; padding-left: 18px; }
+.check { display: flex; align-items: center; gap: 6px; }
+.check input { margin: 0; }
+
+/* The hidden attribute must win over any display rule above. */
+[hidden] { display: none !important; }

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HonorCode</title>
+  <!-- All styling lives in popup.css -->
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <!-- Header: name and a small status pill (Off / Tracking on / Uploading) -->
+  <header>
+    <h1>HonorCode</h1>
+    <span id="pill" class="pill">Off</span>
+  </header>
+
+  <!-- VIEW 1: shown when the student is not logged in (or the login expired) -->
+  <section id="view-auth" hidden>
+    <!-- Shown only when the saved login expired mid-session -->
+    <p id="auth-note" class="note" hidden>Your login expired. Log in again so your recorded events can finish uploading.</p>
+
+    <!-- Switches the form between logging in and registering -->
+    <div class="tabs">
+      <button id="tab-login" class="tab active" type="button">Log in</button>
+      <button id="tab-register" class="tab" type="button">Register</button>
+    </div>
+
+    <label>Email <input id="email" type="email" autocomplete="username"></label>
+    <!-- Register-only fields start hidden -->
+    <label id="row-name" hidden>Full name <input id="name" type="text" autocomplete="name"></label>
+    <label>Password <input id="password" type="password" autocomplete="current-password"></label>
+    <label id="row-code" hidden>Course code <input id="course-code" type="text" autocomplete="off"></label>
+
+    <button id="btn-auth" class="primary" type="button">Log in</button>
+  </section>
+
+  <!-- VIEW 2: logged in, tracking is off -->
+  <section id="view-home" hidden>
+    <p>Signed in as <strong id="who"></strong></p>
+    <p class="note">Open your quiz tab, then turn tracking on from that tab.</p>
+
+    <!-- Plain-language disclosure of exactly what is recorded -->
+    <div class="disclosure">
+      <strong>What is recorded while tracking is on</strong>
+      <ul>
+        <li>When you leave the quiz tab, and for how long</li>
+        <li>The website domain you switch to (not the full address)</li>
+        <li>When the browser loses focus, or you go idle</li>
+      </ul>
+      <strong>Never recorded:</strong> page contents, what you type, screenshots.
+    </div>
+
+    <label class="check"><input id="consent" type="checkbox"> I understand what is recorded</label>
+    <button id="btn-start" class="primary" type="button">Turn on tracking</button>
+    <button id="btn-logout" class="link" type="button">Log out</button>
+  </section>
+
+  <!-- VIEW 3: tracking is on, or the final upload is in progress -->
+  <section id="view-active" hidden>
+    <p id="active-status" class="big"></p>
+    <p id="timer" class="note"></p>
+    <p id="queue" class="note"></p>
+    <p id="auto-note" class="note" hidden>Tracking stops automatically when you submit the quiz.</p>
+    <button id="btn-stop" class="danger" type="button">Turn off tracking</button>
+  </section>
+
+  <!-- Shared error line used by every view -->
+  <p id="error" class="error" role="alert" hidden></p>
+
+  <!-- type="module" is required because popup.js uses import -->
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
